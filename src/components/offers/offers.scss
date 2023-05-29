@@ -1,0 +1,11 @@
+.offers-cards {
+  .card-img-top {
+    width: 5rem;
+    padding: 0.5rem;
+  }
+  border-radius: 8px 8px 8px 8px;
+  box-shadow: 0 0 10px 0 #d9d9d9;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
