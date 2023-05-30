@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { Container, Row, Col, Nav } from "react-bootstrap";
 import "./onlineStore.scss";
 
@@ -42,10 +44,14 @@ function OnlineStore() {
     },
   ];
 
+  useEffect(() => {
+    AOS.init({ duration: 3000 });
+  }, []);
+
   return (
     <Container fluid className="py-5">
       <Row className="mb-4">
-        <Col>
+        <Col data-aos="fade-up" data-aos-once="true">
           <h4 className="text-center text-dr mb-4">
             Create an online store with no coding knowledge
           </h4>
@@ -58,8 +64,16 @@ function OnlineStore() {
       <Row>
         {data.map((item, index) => (
           <Col sm={12}>
-            <Row className={index % 2 ? "flex-row align-items-center" : "flex-row-reverse align-items-center"}>
-              <Col sm={12} xl={6}>
+            <Row
+              className={
+                index % 2
+                  ? "flex-row align-items-center"
+                  : "flex-row-reverse align-items-center"
+              }
+              data-aos={index % 2 ? "fade-left" : "fade-right"}
+              data-aos-once="true"
+            >
+              <Col sm={12} xl={6} data-aos="fade-up" data-aos-once="true">
                 <h2>{item.heading}</h2>
                 <p className="text-secondary fs-5">{item.desc}</p>
                 <Nav className="justify-content-start fs-4 fw-bold">

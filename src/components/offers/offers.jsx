@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import "./offers.scss";
 
@@ -33,10 +35,15 @@ function Offers() {
       desc: "Build your online store in a few easy steps. No coding knowledge is required, just your idea and passion!",
     },
   ];
+
+  useEffect(() => {
+    AOS.init({ duration: 3000 });
+  }, []);
+
   return (
     <Container fluid className="py-5">
       <Row className="mb-4">
-        <Col>
+        <Col data-aos="fade-up" data-aos-once="true">
           <h3>What do we offer?</h3>
         </Col>
       </Row>

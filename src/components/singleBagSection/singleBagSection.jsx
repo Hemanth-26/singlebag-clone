@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import "./singleBagSection.scss";
 
@@ -11,10 +13,13 @@ function SingleBagSection() {
     "https://singlebag.com/wp-content/uploads/2022/12/Singlebag-Theme-5.jpg",
     "https://singlebag.com/wp-content/uploads/2022/12/Singlebag-Theme-6.jpg",
   ];
+  useEffect(() => {
+    AOS.init({ duration: 3000 });
+  }, []);
   return (
     <Container fluid className="py-5">
       <Row>
-        <Col>
+        <Col data-aos="fade-up" data-aos-once="true">
           {" "}
           <h2 className="text-center">
             Singlebag, The Best Ecommerce Platform for Best Results
@@ -32,7 +37,11 @@ function SingleBagSection() {
       <Row>
         {images.map((item) => (
           <Col sm={12} md={4}>
-            <Card className="sbs-cards m-3">
+            <Card
+              className="sbs-cards m-3"
+              data-aos="zoom-in"
+              data-aos-once="true"
+            >
               <Card.Img variant="top" src={item} />
             </Card>
           </Col>

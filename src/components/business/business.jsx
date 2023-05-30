@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import "./business.scss";
 
@@ -23,10 +25,15 @@ function Business() {
       desc: "Run your business with zero inventory and earn profits ",
     },
   ];
+
+  useEffect(() => {
+    AOS.init({ duration: 3000 });
+  }, []);
+
   return (
     <Container fluid className="py-5">
       <Row className="mb-4">
-        <Col>
+        <Col data-aos="fade-up" data-aos-once="true">
           <h2 className="text-center mb-5">Ecommerce Business For Everyone!</h2>
         </Col>
       </Row>
@@ -46,7 +53,7 @@ function Business() {
       </Row>
 
       <Row className="mt-5">
-        <Col>
+        <Col data-aos="fade-up" data-aos-once="true">
           <h2 className="text-center">Our Partners</h2>
         </Col>
       </Row>
